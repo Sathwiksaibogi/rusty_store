@@ -127,4 +127,34 @@ impl Store{
             }
         }
     }
+
+    pub fn print_inventory_report(&self){
+        println!("Inventory Report");
+        println!("{:<10} {:<20} {:<20} {:<10} {:<10} {:<10}","ID","NAME","DESCRIPTION","COST_PRICE","SELL_PRICE","QUANTITY");
+        println!("{}","-".repeat(65));
+        for product in self.products.values(){
+            println!("{:<10} {:<20} {:<20} ${:<9.2} ${:<9.2} {:<10}",product.id,
+        product.name,product.description,product.cost_price,product.sell_price,product.quantity);
+        }
+
+    }
+    pub fn print_sales_report(&self){
+        println!("Sales Report");
+        println!("{:<10} {:<10} {:<10} {:<10}","SALE_ID","PRODUCT_ID","QUANTITY","SELL_PRICE");
+        println!("{}","-".repeat(60));
+    for sale in self.sales.iter(){
+        println!("{:<10} {:<10} {:<10} ${:<9.2}",sale.sale_id,sale.product_id
+    ,sale.quantity,sale.sell_price);
+    }
+    }
+
+    pub fn print_purchase_report(&self){
+        println!("Purchase Report");
+        println!("{:<10} {:<10} {:<10} {:<10}","PURCHASE_ID","PRODUCT_ID","QUANTITY","COST_PRICE");
+        println!("{}","-".repeat(60));
+    for purchase in self.purchases.iter(){
+        println!("{:<10} {:<10} {:<10} ${:<9.2}",purchase.purchase_id,purchase.product_id
+    ,purchase.quantity,purchase.cost_price);
+    }
+    }
 }
