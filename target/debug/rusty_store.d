@@ -1,0 +1,1 @@
+C:\Users\sathw\Documents\rs+sol+zkp\Rust-Projects\rusty_store\target\debug\rusty_store.exe: C:\Users\sathw\Documents\rs+sol+zkp\Rust-Projects\rusty_store\src\main.rs C:\Users\sathw\Documents\rs+sol+zkp\Rust-Projects\rusty_store\src\models.rs

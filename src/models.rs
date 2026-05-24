@@ -26,3 +26,12 @@ pub struct Store{
 
 }
 
+impl Store{
+    pub fn new()->Self{
+        Store { 
+            products:HashMap::new() , 
+            sales: Vec::new(), 
+            purchases:Vec::new(),
+         }
+    }
+}
