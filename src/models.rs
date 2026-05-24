@@ -34,4 +34,46 @@ impl Store{
             purchases:Vec::new(),
          }
     }
+
+    pub fn add_product(&mut self,id:u32,name:String,description:String,price:f64,quantity:u32)->Result<(),String>{
+        let product=Product{
+            id,
+            name,
+            description,
+            price,
+            quantity,
+        };
+        if self.products.contains_key(&id){
+            Err(String::from("Product already exists!!!"))
+        }else{
+            self.products.insert(id, product);
+            Ok(())
+        }
+    }
+
+    pub fn edit_product(&mut self,id:u32,new_price:f64,new_quantity:u32)->Result<(),String>{
+        match self.products.get_mut(&id){
+            Some(product)=>{
+                product.price=new_price;
+                product.quantity=new_quantity;
+                Ok(())
+            }
+            None=>{
+                Err(String::from("product not found"))
+            }
+        }
+
+    }
+
+    pub fn del_product(&mut self,id:u32)->Result<(),String>{
+        match self.products.remove(&id){
+            Some(removed_product )=>{
+                println!("product {} deleted",removed_product.name);
+                Ok(())
+            }
+            None=>{
+                Err(String::from("product does not exist"))
+            }
+        }
+    }
 }
