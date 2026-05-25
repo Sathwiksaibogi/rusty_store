@@ -1,9 +1,20 @@
 mod models;
+mod auth;
+
 use models::{Product,Sale,Purchase,Store};
+use auth::login;
 
 fn main() {
+
+    if !login(){
+        println!("Invalid credentials! Access denied.");
+        return;
+    }
+    println!("Access Granted!");
+
     let mut my_store=Store::new();
     println!("rusty_store is opened!!!");
+
 
     // add products
     match my_store.add_product(101,String::from("laptop"),String::from("high speed"), 70000.00,90000.00, 100){
